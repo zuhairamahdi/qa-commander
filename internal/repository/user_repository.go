@@ -37,7 +37,7 @@ func (ur *UserRepository) GetUserByID(userID uint) (models.User, error) {
 func (ur *UserRepository) GetUserByUsername(username string) (models.User, error) {
 	var user models.User
 	err := ur.DB.QueryRow(`
-		SELECT id, username, password_hash FROM users WHERE username = $1
+		SELECT user_id, username, password_hash FROM users WHERE username = $1
 	`, username).Scan(&user.ID, &user.Username, &user.PasswordHash)
 	if err != nil {
 		return models.User{}, errors.New("user not found")
@@ -45,34 +45,33 @@ func (ur *UserRepository) GetUserByUsername(username string) (models.User, error
 	return user, nil
 }
 
+// HashPassword hashes the given password using bcrypt
 func (ur *UserRepository) HashPassword(password string) (string, error) {
-	// Hash the password with the salt
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
-	if err != nil {
-		return "", err
-	}
-	// Compare the password with the hashed password
-	err = bcrypt.CompareHashAndPassword(hashedPassword, []byte(password))
 	if err != nil {
 		return "", err
 	}
 	return string(hashedPassword), nil
 }
 
-func (ur *UserRepository) CheckPassword(password string, hashedPassword string) bool {
-	// Compare the password with the hashed password
-	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
+// ComparePasswordHash compares a plain text password with its hashed value
+func (ur *UserRepository) ComparePasswordHash(plainPassword, hashedPassword string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(plainPassword))
 	return err == nil
-}
-
-func (ur *UserRepository) HashAndComparePassword(password string, userHashedPassword string) bool {
-	// Hash the password with the salt
-
-	// Compare the password with the hashed password
-	return ur.CheckPassword(password, userHashedPassword)
 }
 
 func (ur *UserRepository) GenerateJWT(userID uint) (string, error) {
 	// Generate a JWT token
 	return "", nil
+}
+
+func (ur *UserRepository) IsUsernameOrEmailExists(username string, email string) bool {
+	var count int
+	err := ur.DB.QueryRow(`
+		SELECT COUNT(*) FROM users WHERE username = $1 OR email = $2
+	`, username, email).Scan(&count)
+	if err != nil {
+		return false
+	}
+	return count > 0
 }

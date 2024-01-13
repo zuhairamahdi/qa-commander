@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"fmt"
+	"net/http"
 	"qa_commander/internal/models"
 	"qa_commander/internal/repository"
 	validators "qa_commander/internal/validator"
@@ -26,6 +27,11 @@ func (uh *UserHandler) CreateUser(c *gin.Context) {
 		c.JSON(400, gin.H{"error": "invalid user register data format"})
 		return
 	}
+	// Check if the username or email already exists
+	if uh.UserRepo.IsUsernameOrEmailExists(userRegister.Username, userRegister.Email) {
+		c.JSON(400, gin.H{"error": "username or email already exists"})
+		return
+	}
 	// check if password is valid
 	if !validators.IsPasswordComplex(userRegister.Password) {
 		c.JSON(400, gin.H{"error": "password is not valid"})
@@ -36,7 +42,7 @@ func (uh *UserHandler) CreateUser(c *gin.Context) {
 		return
 	}
 	// Hash the password with the salt
-	hashedPassword, err := uh.UserRepo.HashPassword(c.PostForm("password"))
+	hashedPassword, err := uh.UserRepo.HashPassword(userRegister.Password)
 	if err != nil {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
@@ -54,7 +60,7 @@ func (uh *UserHandler) CreateUser(c *gin.Context) {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
-	fmt.Println("CreateUser")
+	c.JSON(http.StatusCreated, gin.H{"message": fmt.Sprintf("user %s created", user.Username)})
 	// Handler logic to create a user...
 }
 
@@ -72,7 +78,7 @@ func (uh *UserHandler) Login(c *gin.Context) {
 		return
 	}
 	//comapre the password with the hashed password
-	var isValidPassword bool = uh.UserRepo.HashAndComparePassword(userLogin.Password, user.PasswordHash)
+	var isValidPassword bool = uh.UserRepo.ComparePasswordHash(userLogin.Password, user.PasswordHash)
 	if !isValidPassword {
 		c.JSON(400, gin.H{"error": "invalid password"})
 		return
