@@ -1,44 +1,25 @@
 package handlers
 
 import (
-	"net/http"
-	"qa_commander/internal/models"
 	"qa_commander/internal/repository"
 
 	"github.com/gin-gonic/gin"
 )
 
-type ProjectHandler struct {
-	ProjectRepo *repository.ProjectRepository
+type DefectHandler struct {
+	DefectRepo *repository.DefectRepository
 }
 
-func NewProjectHandler(projectRepo *repository.ProjectRepository) *ProjectHandler {
-	return &ProjectHandler{
-		ProjectRepo: projectRepo,
+func NewDefectHandler(defectRepo *repository.DefectRepository) *DefectHandler {
+	return &DefectHandler{
+		DefectRepo: defectRepo,
 	}
 }
 
-func (ph *ProjectHandler) GetProjects(c *gin.Context) {
-	projects, err := ph.ProjectRepo.GetProjects()
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, projects)
+func (dh *DefectHandler) GetDefects(c *gin.Context) {
+	// Handler logic to retrieve defects...
 }
 
-func (ph *ProjectHandler) CreateProject(c *gin.Context) {
-	var project models.Project
-	if err := c.ShouldBindJSON(&project); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	if err := ph.ProjectRepo.CreateProject(project); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusCreated, project)
+func (dh *DefectHandler) CreateDefect(c *gin.Context) {
+	// Handler logic to create a defect...
 }

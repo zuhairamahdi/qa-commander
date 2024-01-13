@@ -24,12 +24,13 @@ func NewMiddlewareHandler(userRepo *repository.UserRepository) *middlewareHandle
 var SecretKey = []byte("your-secret-key")
 
 // GenerateJWT generates a new JWT token.
-func GenerateJWT(username string) (string, error) {
+func GenerateJWT(username string, user_id uint) (string, error) {
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
 
 	// Set claims
 	claims["username"] = username
+	claims["user_id"] = user_id
 	claims["exp"] = time.Now().Add(time.Hour * 24).Unix() // Token expires in 24 hours
 
 	// Sign the token with the secret key
@@ -76,18 +77,8 @@ func RequireAuthentication() gin.HandlerFunc {
 			return
 		}
 
-		// Set the user information in the context if needed
-		// check if "user" key exists in the context
-		// if _, ok := c.Get("user"); !ok {
-		// 	//get user from repository
-		// 	user, err := ra.UserRepo.GetUserByUsername(token.Claims.(jwt.MapClaims)["username"].(string))
-		// 	if err != nil {
-		// 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
-		// 		c.Abort()
-		// 		return
-		// 	}
-		// 	c.Set("user", user)
-		// }
+		c.Set("username", token.Claims.(jwt.MapClaims)["username"])
+		c.Set("user_id", token.Claims.(jwt.MapClaims)["user_id"])
 
 		// If the token is valid and not expired, proceed to the next middleware
 		c.Next()

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"qa_commander/internal/models"
+	"time"
 )
 
 type ProjectRepository struct {
@@ -16,9 +17,27 @@ func NewProjectRepository(db *sql.DB) *ProjectRepository {
 
 func (pr *ProjectRepository) CreateProject(project models.Project) error {
 	_, err := pr.DB.Exec(`
-		INSERT INTO projects (name) VALUES ($1)
-	`, project.Name)
+		INSERT INTO projects (name, description, owner_id, created_at) VALUES ($1, $2, $3, $4)
+	`, project.Name, project.Description, project.OwnerID, project.CreatedAt)
 	return err
+}
+
+func (pr *ProjectRepository) CreateProjectModel(
+	project_name string, project_description string,
+	project_owner_id uint,
+	start_date string,
+	end_date string,
+) (models.Project, error) {
+	var project models.Project = models.Project{
+		Name:        project_name,
+		Description: project_description,
+		OwnerID:     project_owner_id,
+		CreatedAt:   time.Now().Format(time.RFC3339),
+		StartDate:   start_date,
+		EndDate:     end_date,
+	}
+
+	return project, nil
 }
 
 func (pr *ProjectRepository) GetProjectByID(projectID uint) (models.Project, error) {

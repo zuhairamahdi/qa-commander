@@ -85,7 +85,7 @@ func (uh *UserHandler) Login(c *gin.Context) {
 		return
 	}
 	// Generate a JWT token
-	token, err := middleware.GenerateJWT(user.Username)
+	token, err := middleware.GenerateJWT(user.Username, user.ID)
 	if err != nil {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
