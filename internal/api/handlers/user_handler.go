@@ -3,6 +3,7 @@ package handlers
 import (
 	"fmt"
 	"net/http"
+	"qa_commander/internal/middleware"
 	"qa_commander/internal/models"
 	"qa_commander/internal/repository"
 	validators "qa_commander/internal/validator"
@@ -84,7 +85,7 @@ func (uh *UserHandler) Login(c *gin.Context) {
 		return
 	}
 	// Generate a JWT token
-	token, err := uh.UserRepo.GenerateJWT(user.ID)
+	token, err := middleware.GenerateJWT(user.Username)
 	if err != nil {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
