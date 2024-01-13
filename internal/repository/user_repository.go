@@ -26,7 +26,7 @@ func (ur *UserRepository) CreateUser(user models.User) error {
 func (ur *UserRepository) GetUserByID(userID uint) (models.User, error) {
 	var user models.User
 	err := ur.DB.QueryRow(`
-		SELECT id, username, password_hash FROM users WHERE id = $1
+		SELECT user_id, username, password_hash FROM users WHERE id = $1
 	`, userID).Scan(&user.ID, &user.Username, &user.PasswordHash)
 	if err != nil {
 		return models.User{}, errors.New("user not found")
@@ -58,11 +58,6 @@ func (ur *UserRepository) HashPassword(password string) (string, error) {
 func (ur *UserRepository) ComparePasswordHash(plainPassword, hashedPassword string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(plainPassword))
 	return err == nil
-}
-
-func (ur *UserRepository) GenerateJWT(userID uint) (string, error) {
-	// Generate a JWT token
-	return "", nil
 }
 
 func (ur *UserRepository) IsUsernameOrEmailExists(username string, email string) bool {
