@@ -4,6 +4,7 @@ import (
 	"database/sql"
 
 	"qa_commander/internal/api/handlers"
+	"qa_commander/internal/middleware"
 	"qa_commander/internal/repository"
 
 	"github.com/gin-gonic/gin"
@@ -26,7 +27,7 @@ func SetupRouter(db *sql.DB) *gin.Engine {
 	// Define API routes
 	api := r.Group("/api")
 	{
-		projects := api.Group("/projects")
+		projects := api.Group("/projects").Use(middleware.RequireAuthentication())
 		{
 			projects.GET("/", projectHandler.GetProjects)
 			projects.POST("/create", projectHandler.CreateProject)

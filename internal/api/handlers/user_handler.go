@@ -90,6 +90,8 @@ func (uh *UserHandler) Login(c *gin.Context) {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
+	// inser user to the context
+	//check if "user" key exists in the context
 	c.JSON(200, gin.H{"token": token})
 	return
 

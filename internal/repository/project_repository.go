@@ -24,7 +24,7 @@ func (pr *ProjectRepository) CreateProject(project models.Project) error {
 func (pr *ProjectRepository) GetProjectByID(projectID uint) (models.Project, error) {
 	var project models.Project
 	err := pr.DB.QueryRow(`
-		SELECT id, name FROM projects WHERE id = $1
+		SELECT project_id, name FROM projects WHERE id = $1
 	`, projectID).Scan(&project.ID, &project.Name)
 	if err != nil {
 		return models.Project{}, errors.New("project not found")
@@ -34,7 +34,7 @@ func (pr *ProjectRepository) GetProjectByID(projectID uint) (models.Project, err
 
 func (pr *ProjectRepository) GetProjects() ([]models.Project, error) {
 	rows, err := pr.DB.Query(`
-		SELECT id, name FROM projects
+		SELECT project_id, name FROM projects
 	`)
 	if err != nil {
 		return nil, err
