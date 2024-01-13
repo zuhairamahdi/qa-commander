@@ -1,6 +1,9 @@
 package validator
 
-import "unicode"
+import (
+	"regexp"
+	"unicode"
+)
 
 // check if password is complex enough
 func isPasswordComplex(password string) bool {
@@ -45,6 +48,15 @@ func containsNumber(password string) bool {
 		if unicode.IsNumber(char) {
 			return true
 		}
+	}
+	return false
+}
+
+// check if email is valid
+func isEmailValid(email string) bool {
+	emailRegex := regexp.MustCompile(`^[a-zA-Z0-9.!#$%&'*+/=?^_` + "`" + `{|}~-]+@[a-zA-Z0-9` + "`" + `(` + "`" + `-[a-zA-Z0-9])?` + `(` + "`" + `\.[a-zA-Z0-9` + "`" + `(` + "`" + `-[a-zA-Z0-9])?` + `)*$`)
+	if emailRegex.MatchString(email) {
+		return true
 	}
 	return false
 }
