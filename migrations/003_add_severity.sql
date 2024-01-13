@@ -1,10 +1,11 @@
 -- add severity table
 CREATE TABLE severity (
     severity_id SERIAL PRIMARY KEY,
-    severity_name VARCHAR(50) NOT NULL,
+    severity_name VARCHAR(50) NOT NULL
 );
 
 -- add severity data
+
 INSERT INTO severity (severity_name)
 VALUES
     ('Low'),
@@ -16,7 +17,7 @@ VALUES
 -- add status table
 CREATE TABLE status (
     status_id SERIAL PRIMARY KEY,
-    status_name VARCHAR(50) NOT NULL,
+    status_name VARCHAR(50) NOT NULL
 );
 
 -- add status data
