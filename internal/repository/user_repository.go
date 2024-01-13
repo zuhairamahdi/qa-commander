@@ -64,3 +64,15 @@ func (ur *UserRepository) CheckPassword(password string, hashedPassword string) 
 	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
 	return err == nil
 }
+
+func (ur *UserRepository) HashAndComparePassword(password string, userHashedPassword string) bool {
+	// Hash the password with the salt
+
+	// Compare the password with the hashed password
+	return ur.CheckPassword(password, userHashedPassword)
+}
+
+func (ur *UserRepository) GenerateJWT(userID uint) (string, error) {
+	// Generate a JWT token
+	return "", nil
+}
