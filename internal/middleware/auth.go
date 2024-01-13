@@ -22,7 +22,7 @@ func GenerateJWT(username string) (string, error) {
 	// Sign the token with the secret key
 	tokenString, err := token.SignedString(SecretKey)
 	if err != nil {
-		return "", err
+		return "unable to generate authentication token", err
 	}
 
 	return tokenString, nil
@@ -51,7 +51,19 @@ func RequireAuthentication(next http.Handler) http.Handler {
 			return
 		}
 
+		// Check if the token is expired
+		if isTokenExpired(token) {
+			http.Error(w, "Token has expired", http.StatusUnauthorized)
+			return
+		}
+
 		// If the token is valid, proceed to the next handler
 		next.ServeHTTP(w, r)
 	})
+}
+
+// isTokenExpired checks if the token is expired.
+func isTokenExpired(token *jwt.Token) bool {
+	claims := token.Claims.(jwt.MapClaims)
+	return claims["exp"].(int64) < time.Now().Unix()
 }
