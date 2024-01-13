@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"qa_commander/internal/models"
 	"qa_commander/internal/repository"
+	validators "qa_commander/internal/validator"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -19,6 +21,39 @@ func NewUserHandler(userRepo *repository.UserRepository) *UserHandler {
 }
 
 func (uh *UserHandler) CreateUser(c *gin.Context) {
+	userRegister := new(models.UserRegister)
+	if err := c.ShouldBindJSON(&userRegister); err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
+	// check if password is valid
+	if !validators.IsPasswordComplex(userRegister.Password) {
+		c.JSON(400, gin.H{"error": "password is not valid"})
+		return
+	}
+	if !validators.IsEmailValid(userRegister.Email) {
+		c.JSON(400, gin.H{"error": "email is not valid"})
+		return
+	}
+	// Hash the password with the salt
+	hashedPassword, err := uh.UserRepo.HashPassword(c.PostForm("password"))
+	if err != nil {
+		c.JSON(500, gin.H{"error": err.Error()})
+		return
+	}
+	// Create a new user
+	user := models.User{
+		Username:     c.PostForm("username"),
+		PasswordHash: hashedPassword,
+		Email:        c.PostForm("email"),
+		CreatedAt:    time.Now().String(),
+		Active:       false,
+	}
+	// Save the user to the database
+	if err := uh.UserRepo.CreateUser(user); err != nil {
+		c.JSON(500, gin.H{"error": err.Error()})
+		return
+	}
 	fmt.Println("CreateUser")
 	// Handler logic to create a user...
 }

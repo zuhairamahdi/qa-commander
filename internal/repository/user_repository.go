@@ -18,8 +18,8 @@ func NewUserRepository(db *sql.DB) *UserRepository {
 
 func (ur *UserRepository) CreateUser(user models.User) error {
 	_, err := ur.DB.Exec(`
-		INSERT INTO users (username, password_hash) VALUES ($1, $2)
-	`, user.Username, user.PasswordHash)
+		INSERT INTO users (username, password_hash, email, created_at, active) VALUES ($1, $2, $3, $4, $5)
+	`, user.Username, user.PasswordHash, user.Email, user.CreatedAt, user.Active)
 	return err
 }
 
