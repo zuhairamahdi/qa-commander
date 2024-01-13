@@ -23,7 +23,7 @@ func NewUserHandler(userRepo *repository.UserRepository) *UserHandler {
 func (uh *UserHandler) CreateUser(c *gin.Context) {
 	userRegister := new(models.UserRegister)
 	if err := c.ShouldBindJSON(&userRegister); err != nil {
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(400, gin.H{"error": "invalid user register data format"})
 		return
 	}
 	// check if password is valid
@@ -43,10 +43,10 @@ func (uh *UserHandler) CreateUser(c *gin.Context) {
 	}
 	// Create a new user
 	user := models.User{
-		Username:     c.PostForm("username"),
+		Username:     userRegister.Username,
 		PasswordHash: hashedPassword,
-		Email:        c.PostForm("email"),
-		CreatedAt:    time.Now().String(),
+		Email:        userRegister.Email,
+		CreatedAt:    time.Now().Format(time.RFC3339),
 		Active:       false,
 	}
 	// Save the user to the database

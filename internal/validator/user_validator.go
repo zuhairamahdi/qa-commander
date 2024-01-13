@@ -54,9 +54,11 @@ func containsNumber(password string) bool {
 
 // check if email is valid
 func IsEmailValid(email string) bool {
-	emailRegex := regexp.MustCompile(`^[a-zA-Z0-9.!#$%&'*+/=?^_` + "`" + `{|}~-]+@[a-zA-Z0-9` + "`" + `(` + "`" + `-[a-zA-Z0-9])?` + `(` + "`" + `\.[a-zA-Z0-9` + "`" + `(` + "`" + `-[a-zA-Z0-9])?` + `)*$`)
-	if emailRegex.MatchString(email) {
-		return true
-	}
-	return false
+	emailRegex := `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`
+
+	// Compile the regular expression
+	re := regexp.MustCompile(emailRegex)
+
+	// Match the email against the regular expression
+	return re.MatchString(email)
 }
