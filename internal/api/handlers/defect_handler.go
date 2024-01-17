@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"net/http"
+	"qa_commander/internal/models"
 	"qa_commander/internal/repository"
 
 	"github.com/gin-gonic/gin"
@@ -22,6 +24,21 @@ func (dh *DefectHandler) GetDefects(c *gin.Context) {
 
 func (dh *DefectHandler) CreateDefect(c *gin.Context) {
 	// Handler logic to create a defect...
+	var defect models.Defect
+
+	if err := c.ShouldBindJSON(&defect); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	defect.AssigneeID = uint(c.MustGet("user_id").(float64))
+
+	err := dh.DefectRepo.CreateDefect(defect)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, defect)
+
 }
 
 func (dh *DefectHandler) UpdateDefect(c *gin.Context) {

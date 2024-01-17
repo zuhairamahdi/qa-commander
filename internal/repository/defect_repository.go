@@ -17,7 +17,7 @@ func NewDefectRepository(db *sql.DB) *DefectRepository {
 // CreateDefect creates a new defect in the database.
 func (dr *DefectRepository) CreateDefect(defect models.Defect) error {
 	_, err := dr.DB.Exec(`
-		INSERT INTO defects (title, project_id, status) VALUES ($1, $2, $3)
+		INSERT INTO defects (title, project_id, status, severity, owner_id) VALUES ($1, $2, $3, $4, $5)
 	`, defect.Title, defect.ProjectID, defect.StatusID)
 	return err
 }
