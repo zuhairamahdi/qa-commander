@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS comments (
+	id SERIAL PRIMARY KEY,
+	user_id INTEGER NOT NULL,
+	defect_id INTEGER NOT NULL,
+	text TEXT NOT NULL,
+	created_at TIMESTAMP NOT NULL
+);
