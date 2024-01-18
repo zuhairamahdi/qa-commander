@@ -50,7 +50,19 @@ func (dh *DefectHandler) DeleteDefect(c *gin.Context) {
 }
 
 func (dh *DefectHandler) AddComment(c *gin.Context) {
-	// Handler logic to add a comment to a defect...
+	var comment models.Comment
+	if err := c.ShouldBindJSON(&comment); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	comment.UserID = uint(c.MustGet("user_id").(float64))
+	err := dh.DefectRepo.AddComment(comment)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, comment)
+
 }
 
 func (dh *DefectHandler) UpdateComment(c *gin.Context) {

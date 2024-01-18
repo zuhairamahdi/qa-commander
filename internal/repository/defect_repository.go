@@ -87,3 +87,10 @@ func (dr *DefectRepository) UpdateSeverity(defectID uint, severityID string) err
 	`, severityID, defectID)
 	return err
 }
+
+func (dr *DefectRepository) AddComment(comment models.Comment) error {
+	_, err := dr.DB.Exec(`
+		INSERT INTO comments (text, defect_id, user_id) VALUES ($1, $2, $3)
+	`, comment.Text, comment.DefectID, comment.UserID)
+	return err
+}
