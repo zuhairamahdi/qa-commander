@@ -81,7 +81,7 @@ func (uh *UserHandler) Login(c *gin.Context) {
 	//comapre the password with the hashed password
 	var isValidPassword bool = uh.UserRepo.ComparePasswordHash(userLogin.Password, user.PasswordHash)
 	if !isValidPassword {
-		c.JSON(400, gin.H{"error": "invalid password"})
+		c.JSON(400, gin.H{"error": "invalid email or password"})
 		return
 	}
 	// Generate a JWT token
