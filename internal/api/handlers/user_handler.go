@@ -93,10 +93,5 @@ func (uh *UserHandler) Login(c *gin.Context) {
 	// inser user to the context
 	//check if "user" key exists in the context
 	c.JSON(200, gin.H{"token": token})
-	return
 
-}
-
-func (uh *UserHandler) WriteComment(c *gin.Context) {
-	// Handler logic to allow a user to write a comment...
 }

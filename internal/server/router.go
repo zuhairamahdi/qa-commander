@@ -37,13 +37,17 @@ func SetupRouter(db *sql.DB) *gin.Engine {
 		{
 			defects.GET("/", defectHandler.GetDefects)
 			defects.POST("/create", defectHandler.CreateDefect)
+			defects.PUT("/update", defectHandler.UpdateDefect)
+			defects.DELETE("/delete", defectHandler.DeleteDefect)
+			defects.POST("/comment", defectHandler.AddComment)
+			defects.PUT("/comment/update", defectHandler.UpdateComment)
 		}
 
 		users := api.Group("/users")
 		{
 			users.POST("/create", userHandler.CreateUser)
 			users.POST("/login", userHandler.Login)
-			users.POST("/comment", userHandler.WriteComment)
+			// users.POST("/comment", userHandler.WriteComment)
 		}
 	}
 
