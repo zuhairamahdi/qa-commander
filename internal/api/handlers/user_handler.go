@@ -95,3 +95,13 @@ func (uh *UserHandler) Login(c *gin.Context) {
 	c.JSON(200, gin.H{"token": token})
 
 }
+
+func (uh *UserHandler) GetUser(c *gin.Context) {
+	userID := c.MustGet("user_id").(float64)
+	user, err := uh.UserRepo.GetUserByID(uint(userID))
+	if err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(200, user)
+}
