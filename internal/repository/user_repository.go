@@ -44,7 +44,14 @@ func (ur *UserRepository) GetUserByEmail(email string) (models.User, error) {
 		return models.User{}, errors.New("user not found")
 	}
 	return user, nil
+}
 
+func (ur *UserRepository) UpdateUserRole(userID uint, roleID int) error {
+	_, err := ur.DB.Exec(`
+		UPDATE users SET role_id = $1 WHERE user_id = $2
+	`, roleID, userID)
+	return err
+}
 
 func (ur *UserRepository) GetUserByUsername(username string) (models.User, error) {
 	var user models.User
