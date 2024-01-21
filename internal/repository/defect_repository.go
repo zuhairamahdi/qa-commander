@@ -94,3 +94,42 @@ func (dr *DefectRepository) AddComment(comment models.Comment) error {
 	`, comment.Text, comment.DefectID, comment.UserID)
 	return err
 }
+
+func (dr *DefectRepository) GetCommentsByDefect(defectID uint) ([]models.Comment, error) {
+	rows, err := dr.DB.Query(`
+		SELECT id, text, defect_id, user_id FROM comments WHERE defect_id = $1
+	`, defectID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var comments []models.Comment
+	for rows.Next() {
+		var comment models.Comment
+		if err := rows.Scan(&comment.ID, &comment.Text, &comment.DefectID, &comment.UserID); err != nil {
+			return nil, err
+		}
+		comments = append(comments, comment)
+	}
+
+	return comments, nil
+}
+
+func (dr *DefectRepository) GetCommentByID(commentID uint) (models.Comment, error) {
+	var comment models.Comment
+	err := dr.DB.QueryRow(`
+		SELECT id, text, defect_id, user_id FROM comments WHERE id = $1
+	`, commentID).Scan(&comment.ID, &comment.Text, &comment.DefectID, &comment.UserID)
+	if err != nil {
+		return models.Comment{}, errors.New("comment not found")
+	}
+	return comment, nil
+}
+
+func (dr *DefectRepository) UpdateComment(comment models.Comment) error {
+	_, err := dr.DB.Exec(`
+		UPDATE comments SET text = $1 WHERE id = $2
+	`, comment.Text, comment.ID)
+	return err
+}

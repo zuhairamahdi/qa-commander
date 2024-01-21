@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	_ "github.com/lib/pq"
 )
 
 func setupTestDB() *sql.DB {
@@ -24,11 +26,12 @@ func setupTestDB() *sql.DB {
 	testDBName := fmt.Sprintf("test_%d", os.Getpid())
 
 	// Create a connection to the default PostgreSQL database
-	db, err := sql.Open("postgres", "host=localhost user=your_username dbname=your_default_db sslmode=disable password=your_password")
+	db, err := sql.Open("postgres", "host=localhost user=postgres dbname=qa_commander sslmode=disable password=password")
 	if err != nil {
 		log.Fatalf("Error connecting to default database: %v", err)
 	}
-
+	// Remove the test database if it already exists
+	_, err = db.Exec(fmt.Sprintf("DROP DATABASE IF EXISTS %s", testDBName))
 	// Create the test database
 	_, err = db.Exec(fmt.Sprintf("CREATE DATABASE %s", testDBName))
 	if err != nil {
@@ -39,7 +42,7 @@ func setupTestDB() *sql.DB {
 	db.Close()
 
 	// Connect to the test database
-	testDB, err := sql.Open("postgres", fmt.Sprintf("host=localhost user=your_username dbname=%s sslmode=disable password=your_password", testDBName))
+	testDB, err := sql.Open("postgres", fmt.Sprintf("host=localhost user=postgres dbname=%s sslmode=disable password=password", testDBName))
 	if err != nil {
 		log.Fatalf("Error connecting to test database: %v", err)
 	}
