@@ -47,7 +47,7 @@ func SetupRouter(db *sql.DB) *gin.Engine {
 		{
 			users.POST("/create", userHandler.CreateUser)
 			users.POST("/login", userHandler.Login)
-			users.GET("/profile", userHandler.GetUser).Use(middleware.RequireAuthentication())
+			users.Use(middleware.RequireAuthentication()).GET("/profile", userHandler.GetUser)
 			// users.POST("/comment", userHandler.WriteComment)
 		}
 	}

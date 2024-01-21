@@ -23,16 +23,28 @@ func (ur *UserRepository) CreateUser(user models.User) error {
 	return err
 }
 
-func (ur *UserRepository) GetUserByID(userID uint) (models.User, error) {
+func (ur *UserRepository) GetUserByID(userID uint) (models.UserProfile, error) {
+	var user models.UserProfile
+	err := ur.DB.QueryRow(`
+		SELECT user_id, username, email, created_at, updated_at, active, role_id
+		FROM users WHERE user_id = $1
+	`, userID).Scan(&user.ID, &user.Username, &user.Email, &user.CreatedAt, &user.UpdatedAt, &user.Active, &user.Role)
+	if err != nil {
+		return models.UserProfile{}, errors.New("user not found")
+	}
+	return user, nil
+}
+
+func (ur *UserRepository) GetUserByEmail(email string) (models.User, error) {
 	var user models.User
 	err := ur.DB.QueryRow(`
-		SELECT user_id, username, password_hash FROM users WHERE id = $1
-	`, userID).Scan(&user.ID, &user.Username, &user.PasswordHash)
+		SELECT user_id, username FROM users WHERE email = $1
+	`, email).Scan(&user.ID, &user.Username)
 	if err != nil {
 		return models.User{}, errors.New("user not found")
 	}
 	return user, nil
-}
+
 
 func (ur *UserRepository) GetUserByUsername(username string) (models.User, error) {
 	var user models.User

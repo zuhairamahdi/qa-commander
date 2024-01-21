@@ -21,3 +21,13 @@ type UserRegister struct {
 	Password string `json:"password"`
 	Email    string `json:"email"`
 }
+
+type UserProfile struct {
+	ID        uint   `json:"id"`
+	Username  string `json:"username"`
+	Email     string `json:"email"`
+	CreatedAt string `json:"created_at"`
+	UpdatedAt string `json:"updated_at"`
+	Active    bool   `json:"active"`
+	Role      *int   `json:"role,omitempty"`
+}
