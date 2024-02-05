@@ -7,6 +7,11 @@
 @keyframes dtb-spinner {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes dtb-spinner {
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -14,20 +19,11 @@
 @keyframes dtb-spinner {
   100% {
     transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }
 
 @keyframes dtb-spinner {
   100% {
-    transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes dtb-spinner {
-  100% {
-    transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -89,13 +85,10 @@ a.dt-button {
   background-color: #e9e9e9;
 
   /* Fallback */
-  background-image: linear-gradient(top, white 0%, #e9e9e9 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, white 0%, #e9e9e9 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, white 0%, #e9e9e9 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, white 0%, #e9e9e9 100%);
@@ -103,9 +96,6 @@ a.dt-button {
   /* Opera 11.10+ */
   background-image: linear-gradient(to bottom, white 0%, #e9e9e9 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#e9e9e9');
-  user-select: none;
-  user-select: none;
-  user-select: none;
   user-select: none;
   text-decoration: none;
   outline: none;
@@ -121,13 +111,10 @@ a.dt-button.disabled {
   background-color: #f9f9f9;
 
   /* Fallback */
-  background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
@@ -146,13 +133,10 @@ a.dt-button.active:not(.disabled) {
   background-color: #e2e2e2;
 
   /* Fallback */
-  background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
@@ -173,13 +157,10 @@ a.dt-button.active:not(.disabled):hover:not(.disabled) {
   background-color: #ccc;
 
   /* Fallback */
-  background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
@@ -202,13 +183,10 @@ a.dt-button:hover:not(.disabled) {
   background-color: #e0e0e0;
 
   /* Fallback */
-  background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
@@ -227,13 +205,10 @@ a.dt-button:focus:not(.disabled) {
   background-color: #79ace9;
 
   /* Fallback */
-  background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
@@ -295,13 +270,10 @@ div.dt-button-collection a.dt-button.active:not(.disabled) {
   background-color: #dadada;
 
   /* Fallback */
-  background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
 
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
 
   /* FF3.6 */
-  background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
 
   /* IE10 */
   background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
@@ -335,10 +307,6 @@ div.dt-button-collection.fixed.four-column {
 div.dt-button-collection > :last-child {
   display: block !important;
   column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
 }
 
 div.dt-button-collection > :last-child > * {
@@ -353,10 +321,6 @@ div.dt-button-collection.two-column {
 div.dt-button-collection.two-column > :last-child {
   padding-bottom: 1px;
   column-count: 2;
-  column-count: 2;
-  column-count: 2;
-  column-count: 2;
-  column-count: 2;
 }
 
 div.dt-button-collection.three-column {
@@ -366,10 +330,6 @@ div.dt-button-collection.three-column {
 div.dt-button-collection.three-column > :last-child {
   padding-bottom: 1px;
   column-count: 3;
-  column-count: 3;
-  column-count: 3;
-  column-count: 3;
-  column-count: 3;
 }
 
 div.dt-button-collection.four-column {
@@ -378,10 +338,6 @@ div.dt-button-collection.four-column {
 
 div.dt-button-collection.four-column > :last-child {
   padding-bottom: 1px;
-  column-count: 4;
-  column-count: 4;
-  column-count: 4;
-  column-count: 4;
   column-count: 4;
 }
 
@@ -480,9 +436,5 @@ a.dt-button.processing::after {
   border-radius: 50%;
   border-left-color: transparent;
   border-right-color: transparent;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
   animation: dtb-spinner 1500ms infinite linear;
 }

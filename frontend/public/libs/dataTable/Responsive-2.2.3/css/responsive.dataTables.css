@@ -6,7 +6,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
 
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.child::before,
 table.dataTable.dtr-inline.collapsed > tbody > tr > th.child::before,
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty::before {
+table.dataTable.dtr-inline.collapsed
+  > tbody
+  > tr
+  > td.dataTables_empty::before {
   display: none !important;
 }
 

@@ -7,6 +7,11 @@
 @keyframes dtb-spinner {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes dtb-spinner {
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -14,20 +19,11 @@
 @keyframes dtb-spinner {
   100% {
     transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }
 
 @keyframes dtb-spinner {
   100% {
-    transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes dtb-spinner {
-  100% {
-    transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -88,14 +84,8 @@ a.dt-button {
   overflow: hidden;
   background-color: #e9e9e9;
   background-image: linear-gradient(top, #fff 0%, #e9e9e9 100%);
-  background-image: linear-gradient(top, #fff 0%, #e9e9e9 100%);
-  background-image: linear-gradient(top, #fff 0%, #e9e9e9 100%);
-  background-image: linear-gradient(top, #fff 0%, #e9e9e9 100%);
   background-image: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#e9e9e9');
-  user-select: none;
-  user-select: none;
-  user-select: none;
   user-select: none;
   text-decoration: none;
   outline: none;
@@ -110,9 +100,6 @@ a.dt-button.disabled {
   cursor: default;
   background-color: #f9f9f9;
   background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
-  background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
-  background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
-  background-image: linear-gradient(top, #fff 0%, #f9f9f9 100%);
   background-image: linear-gradient(to bottom, #fff 0%, #f9f9f9 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#f9f9f9');
 }
@@ -124,9 +111,6 @@ div.dt-button.active:not(.disabled),
 a.dt-button:active:not(.disabled),
 a.dt-button.active:not(.disabled) {
   background-color: #e2e2e2;
-  background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
-  background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
-  background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
   background-image: linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
   background-image: linear-gradient(to bottom, #f3f3f3 0%, #e2e2e2 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f3f3f3', EndColorStr='#e2e2e2');
@@ -141,9 +125,6 @@ a.dt-button:active:not(.disabled):hover:not(.disabled),
 a.dt-button.active:not(.disabled):hover:not(.disabled) {
   box-shadow: inset 1px 1px 3px #999;
   background-color: #ccc;
-  background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
-  background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
-  background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
   background-image: linear-gradient(top, #eaeaea 0%, #ccc 100%);
   background-image: linear-gradient(to bottom, #eaeaea 0%, #ccc 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#eaeaea', EndColorStr='#cccccc');
@@ -161,9 +142,6 @@ a.dt-button:hover:not(.disabled) {
   border: 1px solid #666;
   background-color: #e0e0e0;
   background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
-  background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
-  background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
-  background-image: linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
   background-image: linear-gradient(to bottom, #f9f9f9 0%, #e0e0e0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#e0e0e0');
 }
@@ -175,9 +153,6 @@ a.dt-button:focus:not(.disabled) {
   text-shadow: 0 1px 0 #c4def1;
   outline: none;
   background-color: #79ace9;
-  background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
-  background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
-  background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
   background-image: linear-gradient(top, #bddef4 0%, #79ace9 100%);
   background-image: linear-gradient(to bottom, #bddef4 0%, #79ace9 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#bddef4', EndColorStr='#79ace9');
@@ -234,9 +209,6 @@ div.dt-button-collection a.dt-button:active:not(.disabled),
 div.dt-button-collection a.dt-button.active:not(.disabled) {
   background-color: #dadada;
   background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
-  background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
-  background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
-  background-image: linear-gradient(top, #f0f0f0 0%, #dadada 100%);
   background-image: linear-gradient(to bottom, #f0f0f0 0%, #dadada 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f0f0f0', EndColorStr='#dadada');
   box-shadow: inset 1px 1px 3px #666;
@@ -265,10 +237,6 @@ div.dt-button-collection.fixed.four-column {
 div.dt-button-collection > :last-child {
   display: block !important;
   column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
 }
 
 div.dt-button-collection > :last-child > * {
@@ -283,10 +251,6 @@ div.dt-button-collection.two-column {
 div.dt-button-collection.two-column > :last-child {
   padding-bottom: 1px;
   column-count: 2;
-  column-count: 2;
-  column-count: 2;
-  column-count: 2;
-  column-count: 2;
 }
 
 div.dt-button-collection.three-column {
@@ -296,10 +260,6 @@ div.dt-button-collection.three-column {
 div.dt-button-collection.three-column > :last-child {
   padding-bottom: 1px;
   column-count: 3;
-  column-count: 3;
-  column-count: 3;
-  column-count: 3;
-  column-count: 3;
 }
 
 div.dt-button-collection.four-column {
@@ -308,10 +268,6 @@ div.dt-button-collection.four-column {
 
 div.dt-button-collection.four-column > :last-child {
   padding-bottom: 1px;
-  column-count: 4;
-  column-count: 4;
-  column-count: 4;
-  column-count: 4;
   column-count: 4;
 }
 
@@ -396,9 +352,5 @@ a.dt-button.processing::after {
   border-radius: 50%;
   border-left-color: transparent;
   border-right-color: transparent;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
   animation: dtb-spinner 1500ms infinite linear;
 }

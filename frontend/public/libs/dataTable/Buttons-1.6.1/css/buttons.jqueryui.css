@@ -7,6 +7,11 @@
 @keyframes dtb-spinner {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes dtb-spinner {
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -14,20 +19,11 @@
 @keyframes dtb-spinner {
   100% {
     transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }
 
 @keyframes dtb-spinner {
   100% {
-    transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes dtb-spinner {
-  100% {
-    transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -108,10 +104,6 @@ div.dt-button-collection {
   box-shadow: 3px 3px 5px rgb(0 0 0 / 30%);
   z-index: 2002;
   column-gap: 0;
-  column-gap: 0;
-  column-gap: 0;
-  column-gap: 0;
-  column-gap: 0;
 }
 
 div.dt-button-collection .dt-button {
@@ -153,10 +145,6 @@ div.dt-button-collection.fixed.four-column {
 div.dt-button-collection > :last-child {
   display: block !important;
   column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
-  column-gap: 8px;
 }
 
 div.dt-button-collection > :last-child > * {
@@ -171,10 +159,6 @@ div.dt-button-collection.two-column {
 div.dt-button-collection.two-column > :last-child {
   padding-bottom: 1px;
   column-count: 2;
-  column-count: 2;
-  column-count: 2;
-  column-count: 2;
-  column-count: 2;
 }
 
 div.dt-button-collection.three-column {
@@ -184,10 +168,6 @@ div.dt-button-collection.three-column {
 div.dt-button-collection.three-column > :last-child {
   padding-bottom: 1px;
   column-count: 3;
-  column-count: 3;
-  column-count: 3;
-  column-count: 3;
-  column-count: 3;
 }
 
 div.dt-button-collection.four-column {
@@ -196,10 +176,6 @@ div.dt-button-collection.four-column {
 
 div.dt-button-collection.four-column > :last-child {
   padding-bottom: 1px;
-  column-count: 4;
-  column-count: 4;
-  column-count: 4;
-  column-count: 4;
   column-count: 4;
 }
 
@@ -298,9 +274,5 @@ a.dt-button.processing::after {
   border-radius: 50%;
   border-left-color: transparent;
   border-right-color: transparent;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
-  animation: dtb-spinner 1500ms infinite linear;
   animation: dtb-spinner 1500ms infinite linear;
 }

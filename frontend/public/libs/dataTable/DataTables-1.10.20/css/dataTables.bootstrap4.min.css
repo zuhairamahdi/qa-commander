@@ -10,7 +10,6 @@ table.dataTable {
 table.dataTable td,
 table.dataTable th {
   box-sizing: content-box;
-  box-sizing: content-box;
 }
 
 table.dataTable td.dataTables_empty,
