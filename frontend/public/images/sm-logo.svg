@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="60"
+   height="60"
+   viewBox="0 0 15.875 15.875"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="qa-logo.svg"
+   inkscape:export-filename="source/qa-commander/frontend/public/images/sm-logo.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="4.0265009"
+     inkscape:cx="-1.4901276"
+     inkscape:cy="14.777098"
+     inkscape:window-width="1920"
+     inkscape:window-height="942"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       transform="translate(0.01059655,-0.71593591)">
+      <g
+         id="path635933"
+         aria-label="Q"
+         transform="matrix(0.13974851,0,0,0.13974851,-30.641634,12.085667)"
+         style="font-style:normal;font-weight:700;font-size:72px;line-height:1;font-family:'Brandmark1 Bold Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle">
+        <path
+           class="c1"
+           d="m 110.97461,111.0708 c -3.2334,3.2334 -7.52441,5.01172 -12.09766,5.01172 -4.57227,0 -8.86328,-1.77832 -12.09668,-5.01172 -3.2334,-3.23291 -5.01172,-7.52441 -5.01172,-12.09668 0,-4.57275 1.77832,-8.86426 5.01172,-12.09717 3.2334,-3.23291 7.53223,-5.01172 12.09668,-5.01172 4.56543,0 8.86426,1.77881 12.09766,5.01172 3.2334,3.23291 5.01172,7.52441 5.01172,12.09717 0,4.57227 -1.77832,8.86377 -5.01172,12.09668 h 13.60559 c 0.16248,-0.34491 0.32233,-0.69141 0.47156,-1.04395 1.4834,-3.50684 2.23242,-7.22949 2.23242,-11.06006 0,-3.83057 -0.74902,-7.55371 -2.23242,-11.06006 -1.43262,-3.38428 -3.47754,-6.42334 -6.08496,-9.02979 -2.60645,-2.60645 -5.64453,-4.65137 -9.0293,-6.08447 -3.50684,-1.4834 -7.22949,-2.23242 -11.06055,-2.23242 -3.83008,0 -7.55273,0.74902 -11.05957,2.23242 -3.38477,1.43311 -6.42285,3.47803 -9.0293,6.08447 -2.60742,2.60645 -4.65234,5.64551 -6.08496,9.02979 -1.4834,3.50635 -2.23242,7.22949 -2.23242,11.06006 0,3.83057 0.74902,7.55322 2.23242,11.06006 1.43262,3.38428 3.47754,6.42285 6.08496,9.02979 2.60645,2.60645 5.64453,4.65137 9.0293,6.08447 3.50684,1.4834 7.22949,2.23145 11.05957,2.23145 3.83105,0 7.55371,-0.74805 11.06055,-2.23145 0.35022,-0.14832 0.6944,-0.30719 1.03711,-0.46851 z"
+           transform="translate(149.47986,-124.56005)"
+           stroke-width="0"
+           stroke-linejoin="miter"
+           stroke-miterlimit="2"
+           fill="#ffffff"
+           stroke="#ffffff"
+           id="path1"
+           style="fill:#000080" />
+        <polygon
+           class="c3"
+           points="114.67699,129.43994 129.5293,129.43994 111.1329,111.04355 96.04421,110.80716 "
+           transform="translate(149.47986,-124.56005)"
+           stroke-width="0"
+           stroke-linejoin="miter"
+           stroke-miterlimit="2"
+           fill="#ffcd04"
+           stroke="#ffcd04"
+           id="polygon1" />
+      </g>
+      <g
+         id="path635935"
+         aria-label="A"
+         transform="matrix(0.13974851,0,0,0.13974851,-30.082641,12.085667)"
+         style="font-style:normal;font-weight:700;font-size:72px;line-height:1;font-family:'Brandmark1 Bold Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle">
+        <polygon
+           class="c1"
+           points="73.80786,128.08252 85.77515,128.08252 99.93921,89.14844 114.22534,128.08252 126.19214,128.08252 104.82788,71.91748 95.08569,71.91748 "
+           transform="translate(201.82795,-125.55748)"
+           stroke-width="0"
+           stroke-linejoin="miter"
+           stroke-miterlimit="2"
+           fill="#ffffff"
+           stroke="#ffffff"
+           id="polygon2"
+           style="fill:#000080" />
+        <polygon
+           class="c3"
+           points="91.09854,114.24284 108.90146,114.24284 100.03819,128.08252 "
+           transform="translate(201.82795,-125.55748)"
+           stroke-width="0"
+           stroke-linejoin="miter"
+           stroke-miterlimit="2"
+           fill="#ffcd04"
+           stroke="#ffcd04"
+           id="polygon3" />
+      </g>
+    </g>
+  </g>
+</svg>
