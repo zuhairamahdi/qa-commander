@@ -9,7 +9,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gin-contrib/cors"
 	_ "github.com/lib/pq"
 
 	// Run migrations
@@ -45,12 +44,7 @@ func main() {
 	if err != nil {
 		panic("Failed to connect to the database")
 	}
-	corsConfig := cors.DefaultConfig()
-	corsConfig.AllowAllOrigins = true                                                   // Allow all origins
-	corsConfig.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"} // Specify what methods are allowed
-	corsConfig.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type"}
 
 	r := server.SetupRouter(db)
-	r.Use(cors.New(corsConfig))
 	r.Run(":8080")
 }

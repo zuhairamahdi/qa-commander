@@ -7,13 +7,18 @@ import (
 	"qa_commander/internal/middleware"
 	"qa_commander/internal/repository"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 // SetupRouter configures the Gin router with API routes.
 func SetupRouter(db *sql.DB) *gin.Engine {
 	r := gin.Default()
-
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true                                                   // Allow all origins
+	config.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"} // Specify what methods are allowed
+	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type"}
+	r.Use(cors.New(config))
 	// Initialize repository and other dependencies
 	projectRepo := repository.NewProjectRepository(db)
 	defectRepo := repository.NewDefectRepository(db)
