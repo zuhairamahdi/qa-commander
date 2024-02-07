@@ -59,7 +59,7 @@
            fill="#ffffff"
            stroke="#ffffff"
            id="path1"
-           style="fill:#000080" />
+           style="fill:#5149e5;fill-opacity:1" />
         <polygon
            class="c3"
            points="114.67699,129.43994 129.5293,129.43994 111.1329,111.04355 96.04421,110.80716 "
@@ -86,7 +86,7 @@
            fill="#ffffff"
            stroke="#ffffff"
            id="polygon2"
-           style="fill:#000080" />
+           style="fill:#5149e5;fill-opacity:1" />
         <polygon
            class="c3"
            points="91.09854,114.24284 108.90146,114.24284 100.03819,128.08252 "
