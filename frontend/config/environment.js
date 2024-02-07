@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'frontend',
+    API_BASE_URL:'http://localhost:8080',
     environment,
     rootURL: '/',
     locationType: 'history',

@@ -6,7 +6,7 @@ CREATE TABLE comment_changes (
     change_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     changed_by INT NOT NULL,
     FOREIGN KEY (comment_id) REFERENCES comments (id),
-    FOREIGN KEY (changed_by) REFERENCES users (id)
+    FOREIGN KEY (changed_by) REFERENCES users (user_id)
 );
 
 CREATE TABLE severity_changes (
@@ -16,8 +16,8 @@ CREATE TABLE severity_changes (
     new_severity VARCHAR(255),
     change_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     changed_by INT NOT NULL,
-    FOREIGN KEY (defect_id) REFERENCES defects (id),
-    FOREIGN KEY (changed_by) REFERENCES users (id)
+    FOREIGN KEY (defect_id) REFERENCES defects (defect_id),
+    FOREIGN KEY (changed_by) REFERENCES users (user_id)
 );
 
 CREATE TABLE status_changes (
@@ -27,6 +27,6 @@ CREATE TABLE status_changes (
     new_status VARCHAR(255),
     change_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     changed_by INT NOT NULL,
-    FOREIGN KEY (defect_id) REFERENCES defects (id),
-    FOREIGN KEY (changed_by) REFERENCES users (id)
+    FOREIGN KEY (defect_id) REFERENCES defects (defect_id),
+    FOREIGN KEY (changed_by) REFERENCES users (user_id)
 );

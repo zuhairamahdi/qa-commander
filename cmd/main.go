@@ -8,8 +8,8 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	config0 "qa_commander/config"
 
+	"github.com/gin-contrib/cors"
 	_ "github.com/lib/pq"
 
 	// Run migrations
@@ -20,7 +20,7 @@ func main() {
 	config := config.NewConfig()
 
 	func() {
-		var conf config0.Config = *config
+		conf := *config
 		appConfig := &conf
 		db, err := sql.Open("postgres", appConfig.DatabaseURL)
 		if err != nil {
@@ -40,12 +40,17 @@ func main() {
 		}
 		log.Println("Migrations applied successfully")
 	}()
+
 	db, err := sql.Open("postgres", config.DatabaseURL)
 	if err != nil {
 		panic("Failed to connect to the database")
 	}
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowAllOrigins = true                                                   // Allow all origins
+	corsConfig.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"} // Specify what methods are allowed
+	corsConfig.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type"}
 
 	r := server.SetupRouter(db)
-
+	r.Use(cors.New(corsConfig))
 	r.Run(":8080")
 }
