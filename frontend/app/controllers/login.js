@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import RouterService from '@ember/routing/router-service';
 import ENV from 'frontend/config/environment';
 
 export default class LoginController extends Controller {
@@ -16,8 +17,11 @@ export default class LoginController extends Controller {
     @action
     authenticate(event) {
         event.preventDefault();
-        console.log('Authenticating...');
-        console.log('Username:', this.username);
+        // if token is already present, redirect to home
+        if (sessionStorage.getItem('token')) {
+            RouterService.transitionTo('dashboard');
+            return;
+        }
         let { username, password } = this;
         fetch(`${ENV.API_BASE_URL}/api/users/login`, {
             method: 'POST',
@@ -29,9 +33,10 @@ export default class LoginController extends Controller {
             .then(response => response.json())
             .then(data => {
                 // Store the token in session or local storage
-                // Example of storing in session storage:
+
                 sessionStorage.setItem('token', data.token);
-                console.log('Token stored successfully');
+                //add isAuthenticated to session
+                this.session.set('isAuthenticated', true);
             })
             .catch(error => {
                 console.error('Error occurred during login:', error);
