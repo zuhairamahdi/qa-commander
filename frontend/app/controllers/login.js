@@ -2,8 +2,9 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import RouterService from '@ember/routing/router-service';
 import ENV from 'frontend/config/environment';
-
+import { inject as service } from '@ember/service';
 export default class LoginController extends Controller {
+    @service router;
     @action
     updateUsername(event) {
         this.set('username', event.target.value);
@@ -35,8 +36,9 @@ export default class LoginController extends Controller {
                 // Store the token in session or local storage
 
                 sessionStorage.setItem('token', data.token);
-                //add isAuthenticated to session
-                this.session.set('isAuthenticated', true);
+                //redirect to dashboard
+                this.router.transitionTo('dashboard');
+
             })
             .catch(error => {
                 console.error('Error occurred during login:', error);
