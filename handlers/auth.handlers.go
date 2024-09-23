@@ -8,6 +8,12 @@ import (
 
 func Login(c echo.Context) error {
 	component := auth_views.Login()
-
-	return render(c, component)
+	view := viewProps{
+		title:      "Login",
+		includeNav: false,
+		activeNav:  "login",
+		c:          c,
+		component:  component,
+	}
+	return render(view)
 }

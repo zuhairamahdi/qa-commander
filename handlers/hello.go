@@ -10,7 +10,15 @@ import (
 func Hello(c echo.Context) error {
 	component := views.Hello("World")
 
+	// Create the view properties.
+	view := viewProps{
+		title:      "Hello",
+		includeNav: true,
+		activeNav:  "hello",
+		c:          c,
+		component:  component,
+	}
 	// Render the component.
-	return render(c, component)
+	return render(view)
 
 }
