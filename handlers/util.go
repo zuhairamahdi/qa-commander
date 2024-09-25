@@ -5,6 +5,6 @@ import (
 )
 
 func render(view viewProps) error {
-	baseComponent := layout.BaseView(view.component)
+	baseComponent := layout.BaseView(view.component, view.title)
 	return baseComponent.Render(view.c.Request().Context(), view.c.Response().Writer)
 }
