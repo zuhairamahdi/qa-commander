@@ -1,6 +1,8 @@
 package views
 
-templ BaseView(component templ.Component, title string) {
+import "qacommander/views/sidebar"
+
+templ BaseView(component templ.Component, title string, includeSidebar bool) {
     <!DOCTYPE html>
     <html lang="en">
 
@@ -18,6 +20,9 @@ templ BaseView(component templ.Component, title string) {
 
         <body>
             <script src="assets/static/js/initTheme.js"></script>
+            if includeSidebar {
+                @views.Sidebar()
+            }
             @component
 
         </body>

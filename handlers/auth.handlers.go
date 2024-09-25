@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"log"
 	auth_views "qacommander/views/auth"
 	dash "qacommander/views/dashboard"
 
@@ -20,10 +21,15 @@ func Login(c echo.Context) error {
 }
 
 func LoginPost(c echo.Context) error {
-	component := dash.Dashbard()
+
+	// Get the form values.
+	username := c.FormValue("username")
+	password := c.FormValue("password")
+	log.Printf("Username: %s, Password: %s", username, password)
+	component := dash.Dashboard()
 	view := viewProps{
 		title:      "Dashboard",
-		includeNav: false,
+		includeNav: true,
 		// activeNav:  "login",
 		c:         c,
 		component: component,
