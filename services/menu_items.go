@@ -37,6 +37,27 @@ func GetMenu() []MenuSection {
 					Icon:        "bi-grid-fill",
 					IsAvailable: true,
 				},
+				{
+					ID:          2,
+					Name:        "Projects",
+					HRef:        "/projects",
+					Icon:        "bi-folder-fill",
+					IsAvailable: true,
+				},
+				{
+					ID:          3,
+					Name:        "Tasks",
+					HRef:        "/tasks",
+					Icon:        "bi-list-task",
+					IsAvailable: true,
+				},
+				{
+					ID:          4,
+					Name:        "Reports",
+					HRef:        "/reports",
+					Icon:        "bi-file-earmark-bar-graph-fill",
+					IsAvailable: true,
+				},
 			},
 			IsAvailable: true,
 		},
@@ -51,6 +72,27 @@ func GetMenu() []MenuSection {
 					Icon:        "bi-person-fill",
 					IsAvailable: true,
 				},
+				{
+					ID:          2,
+					Name:        "Roles",
+					HRef:        "/roles",
+					Icon:        "bi-person-lines-fill",
+					IsAvailable: true,
+				},
+				{
+					ID:          3,
+					Name:        "Permissions",
+					HRef:        "/permissions",
+					Icon:        "bi-shield-fill",
+					IsAvailable: true,
+				},
+				{
+					ID:          4,
+					Name:        "Site Settings",
+					HRef:        "/site-settings",
+					Icon:        "bi-gear-fill",
+					IsAvailable: true,
+				},
 			},
 		},
 	}
@@ -63,12 +105,7 @@ func MarkMenuItemActive(activeHref string) []MenuSection {
 	//check if the activeHref is a subpath of any menu item
 	for i, section := range menu {
 		for j, item := range section.MenuItems {
-			if strings.Contains(activeHref, item.HRef) {
-				menu[i].MenuItems[j].IsActive = true
-				menu[i].MenuItems[j].ActiveClass = "active"
-				break
-			}
-			if item.HRef == activeHref {
+			if strings.Contains(activeHref, item.HRef) || item.HRef == activeHref {
 				menu[i].MenuItems[j].IsActive = true
 				menu[i].MenuItems[j].ActiveClass = "active"
 				break
