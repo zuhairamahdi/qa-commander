@@ -6,9 +6,12 @@ func InitRoutes(e *echo.Echo) {
 	e.GET("/", Home)
 	e.GET("/login", Login)
 	e.POST("/login", LoginPost)
+	// TODO paths need to be authenticated
 	e.GET("/dashboard", Dashboard)
 	e.GET("/users", Users)
-	// add authenticated routes group
+	e.GET("/projects", Projects)
+	e.GET("/tasks", Tasks)
+	e.GET("/reports", Reports)
 	// g := e.Group("/auth")
 
 }
