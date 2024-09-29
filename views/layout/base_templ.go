@@ -9,8 +9,9 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import "qacommander/views/sidebar"
+import "github.com/labstack/echo/v4"
 
-func BaseView(component templ.Component, title string, includeSidebar bool) templ.Component {
+func BaseView(component templ.Component, title string, includeSidebar bool, c echo.Context) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -46,7 +47,7 @@ func BaseView(component templ.Component, title string, includeSidebar bool) temp
 			return templ_7745c5c3_Err
 		}
 		if includeSidebar {
-			templ_7745c5c3_Err = views.Sidebar().Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = views.Sidebar(c).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -1,8 +1,9 @@
 package views
 
 import "qacommander/views/sidebar"
+import "github.com/labstack/echo/v4"
 
-templ BaseView(component templ.Component, title string, includeSidebar bool) {
+templ BaseView(component templ.Component, title string, includeSidebar bool, c echo.Context) {
     <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -20,7 +21,8 @@ templ BaseView(component templ.Component, title string, includeSidebar bool) {
         <body>
             <script src="assets/static/js/initTheme.js"></script>
             if includeSidebar {
-                @views.Sidebar()
+
+                @views.Sidebar(c)
             }
             @component
 
