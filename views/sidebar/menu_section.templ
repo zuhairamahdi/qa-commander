@@ -1,0 +1,19 @@
+package views
+
+import "qacommander/services"
+import "github.com/labstack/echo/v4"
+
+templ RenderSections(c echo.Context) {
+    for _, section := range services.MarkMenuItemActive(c.Request().URL.Path){
+        <li class="sidebar-title">{section.Name}</li>
+        for _, item := range section.MenuItems { 
+            <li class={"sidebar-item", templ.KV("active", item.IsActive)}>
+            <a href={templ.URL(item.HRef)} class='sidebar-link'>
+                <i class={"bi", item.Icon}></i>
+                <span>{item.Name}</span>
+            </a>
+        </li>
+        }
+    }
+
+}
