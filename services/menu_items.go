@@ -94,6 +94,27 @@ func GetMenu() []MenuSection {
 					IsAvailable: true,
 				},
 			},
+			IsAvailable: true,
+		},
+		{
+			ID:   3,
+			Name: "User",
+			MenuItems: []MenuItem{
+				{
+					ID:          1,
+					Name:        "Profile",
+					HRef:        "/profile",
+					Icon:        "bi-person-circle",
+					IsAvailable: true,
+				},
+				{
+					ID:          2,
+					Name:        "Logout",
+					HRef:        "/logout",
+					Icon:        "bi-box-arrow-right",
+					IsAvailable: true,
+				},
+			},
 		},
 	}
 	return sections
