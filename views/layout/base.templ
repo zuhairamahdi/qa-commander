@@ -21,20 +21,22 @@ templ BaseView(component templ.Component, title string, includeSidebar bool, c e
         <body>
             <script src="assets/static/js/initTheme.js"></script>
             <div id="app">
-
-                <div id="main">
+                if !includeSidebar {
+                    @component
+                }
+                else {
+                    <div id="main">
                     <header class="mb-3">
                         <a href="#" class="burger-btn d-block d-xl-none">
                             <i class="bi bi-justify fs-3"></i>
                         </a>
                     </header>
-                    if includeSidebar {
-
-                        @views.Sidebar(c)
-                    }
+                    @views.Sidebar(c)
                     @component
                     @Footer()
             </div>
+                }
+                
         </div>
         </body>
     </html>
