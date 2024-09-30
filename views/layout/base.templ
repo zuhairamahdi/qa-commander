@@ -28,20 +28,14 @@ templ BaseView(component templ.Component, title string, includeSidebar bool, c e
                             <i class="bi bi-justify fs-3"></i>
                         </a>
                     </header>
-            if includeSidebar {
+                    if includeSidebar {
 
-                @views.Sidebar(c)
-            }
-            @component
-        <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2024 &copy; QACommander</p>
-                    </div>
-                </div>
-            </footer>
+                        @views.Sidebar(c)
+                    }
+                    @component
+                    @Footer()
+            </div>
         </div>
-    </div>
         </body>
     </html>
 }
