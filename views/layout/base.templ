@@ -1,11 +1,11 @@
 package views
 
 import "qacommander/views/sidebar"
+import "github.com/labstack/echo/v4"
 
-templ BaseView(component templ.Component, title string, includeSidebar bool) {
+templ BaseView(component templ.Component, title string, includeSidebar bool, c echo.Context) {
     <!DOCTYPE html>
     <html lang="en">
-
         <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,11 +20,22 @@ templ BaseView(component templ.Component, title string, includeSidebar bool) {
 
         <body>
             <script src="assets/static/js/initTheme.js"></script>
-            if includeSidebar {
-                @views.Sidebar()
-            }
-            @component
+            <div id="app">
 
+                <div id="main">
+                    <header class="mb-3">
+                        <a href="#" class="burger-btn d-block d-xl-none">
+                            <i class="bi bi-justify fs-3"></i>
+                        </a>
+                    </header>
+                    if includeSidebar {
+
+                        @views.Sidebar(c)
+                    }
+                    @component
+                    @Footer()
+            </div>
+        </div>
         </body>
     </html>
 }
