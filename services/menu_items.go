@@ -9,10 +9,10 @@ type MenuItem struct {
 	ID          int    `json:"id"`
 	Name        string `json:"name"`
 	HRef        string `json:"href"`
-	Icon        string `json:"icon"`
-	IsActive    bool   `json:"is_active"`
-	ActiveClass string `json:"active_class"`
-	IsAvailable bool   `json:"is_available"`
+	Icon        string `json:"icon" default:"bi-grid-fill"`
+	IsActive    bool   `json:"is_active" default:"false"`
+	ActiveClass string `json:"active_class" default:"active"`
+	IsAvailable bool   `json:"is_available" default:"true"`
 }
 
 // MenuSection represents a section in the sidebar

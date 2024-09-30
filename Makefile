@@ -3,6 +3,7 @@ generate:
 	@go generate ./...
     
 run:
+	@if [ -n "$$(lsof -ti:1323)" ]; then kill -9 $$(lsof -ti:1323); fi
 	@wgo -file=.go -file=.templ -xfile=_templ.go make generate :: go run main.go
 
 build: generate 
