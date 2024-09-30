@@ -11,7 +11,6 @@ type MenuItem struct {
 	HRef        string `json:"href"`
 	Icon        string `json:"icon" default:"bi-grid-fill"`
 	IsActive    bool   `json:"is_active" default:"false"`
-	ActiveClass string `json:"active_class" default:"active"`
 	IsAvailable bool   `json:"is_available" default:"true"`
 }
 
@@ -128,7 +127,6 @@ func MarkMenuItemActive(activeHref string) []MenuSection {
 		for j, item := range section.MenuItems {
 			if strings.Contains(activeHref, item.HRef) || item.HRef == activeHref {
 				menu[i].MenuItems[j].IsActive = true
-				menu[i].MenuItems[j].ActiveClass = "active"
 				break
 			}
 		}
